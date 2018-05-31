@@ -87,13 +87,13 @@
 <meta property="og:site_name" content="DLKKILL">
 <meta property="og:description" content="一、一些概念1.递归​    直接或者间接地调用自身的算法成为递归。主要是依托于递归函数来实现，递归函数是指用函数自身给出定义的函数。同时，递归也是实现分治的基础，大部分分治算法都是依托于递归来实现的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://dlkkill.top/算法设计笔记-递归与分治/算法设计笔记-递归与分治.assets/1.png">
-<meta property="og:image" content="http://dlkkill.top/算法设计笔记-递归与分治/算法设计笔记-递归与分治.assets/2.png">
-<meta property="og:updated_time" content="2018-05-31T02:00:48.828Z">
+<meta property="og:image" content="http://dlkkill.top/算法设计笔记-递归与分治/1.png">
+<meta property="og:image" content="http://dlkkill.top/算法设计笔记-递归与分治/2.png">
+<meta property="og:updated_time" content="2018-05-31T03:44:34.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法设计笔记----递归与分治">
 <meta name="twitter:description" content="一、一些概念1.递归​    直接或者间接地调用自身的算法成为递归。主要是依托于递归函数来实现，递归函数是指用函数自身给出定义的函数。同时，递归也是实现分治的基础，大部分分治算法都是依托于递归来实现的。">
-<meta name="twitter:image" content="http://dlkkill.top/算法设计笔记-递归与分治/算法设计笔记-递归与分治.assets/1.png">
+<meta name="twitter:image" content="http://dlkkill.top/算法设计笔记-递归与分治/1.png">
 
 
 
@@ -371,9 +371,9 @@
 <h3 id="2-分治"><a href="#2-分治" class="headerlink" title="2.分治"></a>2.分治</h3><p>​    分治法的设计思想是，将一个难以解决的大问题，分割成一些规模较小的相同问题，以便于各个击破，分而治之。分解后的这些子问题相互独立且与原问题相同，递归的解这些子问题，然后将各个子问题的解进行合并得到原问题的解。分治的核心就在于将问题分解进行简化，往往一个复杂的问题经过分解后，会变得容易解决。</p>
 <p>​    举例，棋盘覆盖问题。便是将一个复杂的n<em>n情况，分解成最终只有4\</em>4的情况,这种情况下问题就会变得很简单。</p>
 <h2 id="二、如何计算分治算法的时间复杂度"><a href="#二、如何计算分治算法的时间复杂度" class="headerlink" title="二、如何计算分治算法的时间复杂度"></a>二、如何计算分治算法的时间复杂度</h2><p>​    假如分治法将一个规模为n的问题分解为k个规模为n/m的子问题去解决，为了方便起见，规定adhoc（指用于直接解小规模的问题P，当P的规模不超过n0时，直接用算法adhoc(P)求解）解规模为1的问题耗费1个时间单位时间。另外，再设将问题分解以及合并解的过程需要f(n)个单位时间。如果用T(n)表示分治算法解规模为n的问题所需时间，则有：</p>
-<p><img src="/算法设计笔记-递归与分治/算法设计笔记-递归与分治.assets/1.png" alt="1"></p>
+<p><img src="/算法设计笔记-递归与分治/1.png" alt=""></p>
 <p>​    解这个方程可得到时间复杂度为：</p>
-<p><img src="/算法设计笔记-递归与分治/算法设计笔记-递归与分治.assets/2.png" alt="2"></p>
+<p><img src="/算法设计笔记-递归与分治/2.png" alt=""></p>
 
       
     </div>
