@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="DLKKILL">
 <meta property="og:description" content="一、什么是动态规划​    以下引自知乎：  动态规划的本质，是对问题状态的定义和状态转移方程的定义。   dynamic programming is a method for solving a complex problem by breaking it down into a collection of simpler subproblems.   ​    在我看来，状态的定义以及状态转">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-03T15:24:24.269Z">
+<meta property="og:updated_time" content="2018-06-04T05:19:10.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法设计笔记-简单的动态规划">
 <meta name="twitter:description" content="一、什么是动态规划​    以下引自知乎：  动态规划的本质，是对问题状态的定义和状态转移方程的定义。   dynamic programming is a method for solving a complex problem by breaking it down into a collection of simpler subproblems.   ​    在我看来，状态的定义以及状态转">
@@ -372,6 +372,7 @@
 </blockquote>
 <p>​    在我看来，<strong>状态的定义</strong>以及<strong>状态转移方程的定义</strong>，确实是动态规划最核心的两点，但也是让我最为头疼的两点。往往因为无法得到状态转移方程，而对一个动态规划问题无从下手。</p>
 <p>​    动态规划算法与分治法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。但与分治法不同的是，适用于用动态规划法解的问题，经分解得到的子问题往往不是相互独立的，这时候我们就可以通过保存子问题的答案（一般是子问题最优解），而在需要的时候再找出以求得的答案，递推得到原问题的最优解。</p>
+<a id="more"></a>
 <p> 动态规划算法适用于解最优化问题。通常可按一下四个步骤设计：</p>
 <ol>
 <li>找出最优解的性质，并刻画其结构的特征</li>
@@ -395,6 +396,11 @@
 <p>假设棋子走到了第二行第三列，记为s(2,3) ，当位于s(2,3)的棋子要进行决策（向右或者向下走）的时候，之前棋子是如何走到s(2,3)这个位置的是不会影响我做这个决策的。之前的决策不会影响了未来的决策（之前和未来相对于现在棋子位于s(2,3)的时刻），这就是无后效性,也就是所谓的“未来与过去无关” 。</p>
 <p>而<strong>有后效性</strong>是指，比如说“棋子不能走以及走过的格”，这时，位于s(2,3)的棋子要进行决策是时候，就要考虑之前是如何走到这个位置的，而做出的决策，也会影响未来的决策，这就是有后效性。</p>
 <h2 id="三、应用举例"><a href="#三、应用举例" class="headerlink" title="三、应用举例"></a>三、应用举例</h2><h3 id="1-背包问题"><a href="#1-背包问题" class="headerlink" title="1.背包问题"></a>1.背包问题</h3><h3 id="1-1-0-1背包"><a href="#1-1-0-1背包" class="headerlink" title="1.1 0-1背包"></a>1.1 0-1背包</h3><h4 id="1-1-1-问题描述"><a href="#1-1-1-问题描述" class="headerlink" title="1.1.1 问题描述"></a>1.1.1 问题描述</h4><p>有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使价值总和最大。 </p>
+<h4 id="1-1-2-问题分析"><a href="#1-1-2-问题分析" class="headerlink" title="1.1.2 问题分析"></a>1.1.2 问题分析</h4><p>​    这是最基础的背包问题，也是最基础的动态规划问题。特点是每个物品只有一个，可以选择放或者是不放。</p>
+<p>​    对于这个问题，用子问题定义状态：即F(i,v)表示前i件物体放进容量为v的背包里面我们可得到的最大价值。由此可以得到下面这个动态规划递推的公式：</p>
+<p>​    F(i,v)=max{ F (i-1,v) , F ( i-1 , v-Ci) + Wi } ;</p>
+<p>​    这里，就是取两种状态的最大值，即不选择第i个F (i-1,v)和选择第i个F ( i-1 , v-Ci) + Wi  来作为F(i,v)的最优解。</p>
+<h4 id="1-1-3-算法实现"><a href="#1-1-3-算法实现" class="headerlink" title="1.1.3 算法实现"></a>1.1.3 算法实现</h4><p>​    </p>
 
       
     </div>
@@ -565,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、什么是动态规划"><span class="nav-text">一、什么是动态规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、最优子结构与无后效性"><span class="nav-text">二、最优子结构与无后效性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、应用举例"><span class="nav-text">三、应用举例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-背包问题"><span class="nav-text">1.背包问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-0-1背包"><span class="nav-text">1.1 0-1背包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-问题描述"><span class="nav-text">1.1.1 问题描述</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、什么是动态规划"><span class="nav-text">一、什么是动态规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、最优子结构与无后效性"><span class="nav-text">二、最优子结构与无后效性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、应用举例"><span class="nav-text">三、应用举例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-背包问题"><span class="nav-text">1.背包问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-0-1背包"><span class="nav-text">1.1 0-1背包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-问题描述"><span class="nav-text">1.1.1 问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-问题分析"><span class="nav-text">1.1.2 问题分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-3-算法实现"><span class="nav-text">1.1.3 算法实现</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
